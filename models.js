@@ -36,6 +36,12 @@ const Review = sequelize.define('reviews', {
   review: Sequelize.STRING,
 });
 
+User.hasMany(Product);
+User.hasMany(Review);
+Review.belongsTo(User);
+Product.hasMany(User);
+
+
 User.hasMany(Product, {
   onDelete: 'cascade',
   foreignKey: {
@@ -43,7 +49,7 @@ User.hasMany(Product, {
   }
 });
 
-Product.hasOne(User, {
+Product.hasMany(User, {
   foreignKey: {
     allowNull: false
   }
