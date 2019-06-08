@@ -10,6 +10,7 @@ const sequelize = new Sequelize({
 });
 
 const User = sequelize.define('users', {
+  username: Sequelize.STRING,
   first_name: Sequelize.STRING,
   last_name: Sequelize.STRING,
   password_digest: Sequelize.STRING,
